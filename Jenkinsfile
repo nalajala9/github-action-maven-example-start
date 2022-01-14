@@ -1,6 +1,8 @@
 pipeline {
     agent any
-    "def dockerImage = '20152282/javaapp_$JOB_NAME:$BUILD_NUMBER'"
+    environment{
+    dockerImage = "20152282/javaapp_$JOB_NAME:$BUILD_NUMBER"
+    }
     tools { 
         maven 'Maven' 
         jdk 'JDK 1.8.*' 
