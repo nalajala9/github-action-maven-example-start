@@ -1,7 +1,7 @@
 pipeline {
     agent any
-    environmet{
-        def dockerImage = '20152282/javaapp_$JOB_NAME:$BUILD_NUMBER'
+    environmet {
+        dockerImage = '20152282/javaapp_$JOB_NAME:$BUILD_NUMBER'
     }
     tools { 
         maven 'Maven' 
