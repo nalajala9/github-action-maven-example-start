@@ -16,6 +16,9 @@ pipeline {
             steps{
             sh 'mvn clean package -Dmaven.test.skip=true'
             sh "ls -al"
+            sh "cd target"
+            sh "ls -al"
+                sh "*.jar${env.BUILD_NUMBER}"    
               
             }
         }
