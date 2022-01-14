@@ -11,9 +11,8 @@ pipeline {
         stage('git checkout'){
             steps{
                 git branch: 'master',
-                credentialsId: 'git_hub',
                 url: 'https://github.com/nalajala9/github-action-maven-example-start.git'
-            sh "ls -la"
+            sh "ls -al"
             }
         }
         stage('Build'){
