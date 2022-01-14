@@ -18,7 +18,7 @@ pipeline {
             sh "ls -al"
             sh "cd target"
             sh "ls -al"
-                sh "*.jar${env.BUILD_NUMBER}"    
+            sh "*.jar${env.BUILD_NUMBER}"    
               
             }
         }
