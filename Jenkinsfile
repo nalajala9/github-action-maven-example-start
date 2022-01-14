@@ -2,6 +2,7 @@ pipeline {
     agent any
     environment{
     dockerImage = "20152282/javaapp_$JOB_NAME:$BUILD_NUMBER"
+    dockerContainerName = 'javaapp_$JOB_NAME_$BUILD_NUMBER'
     }
     tools { 
         maven 'Maven' 
@@ -27,6 +28,7 @@ pipeline {
       stage('Docker Image'){
           steps{
               sh "docker build  -t ${env.dockerImage} ."   
+              sh "docker run -p 8082:8080 -d --name ${dockerContainerName} ${dockerImage}"
             }
         }
      
