@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    environmet{
+        dockerImage = '20152282/javaapp_$JOB_NAME:$BUILD_NUMBER'
+    }
     tools { 
         maven 'Maven' 
         jdk 'JDK 1.8.*' 
@@ -21,6 +24,12 @@ pipeline {
               
             }
         }
+      stage('Docker Image'){
+          steps{
+              sh "docker build  -t ${dockerImage} .   
+            }
+        }
+     
     }    
 }    
 
