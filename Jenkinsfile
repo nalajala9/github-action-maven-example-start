@@ -19,8 +19,6 @@ pipeline {
         stage('Build'){
             steps{
             sh 'mvn clean package -Dmaven.test.skip=true'
-            sh "ls -al"
-            sh "cd target"
             sh "ls -al" 
               
             }
