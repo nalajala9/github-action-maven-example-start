@@ -27,11 +27,24 @@ pipeline {
         }
       stage('Docker Image'){
           steps{
-              sh "docker build  -t ${env.dockerImage} ."   
+              sh "docker build  -t ${dockerImage} ." 
+            }
+        }
+        
+      stage('Docker Push'){
+          steps{
+              withCredentials([string(credentialsId: 'dockerpwd', variable: 'dockerPWD')]) {
+              sh "docker login -u 20152282 -p ${dockerPWD}"
+              }
+              sh "docker push ${dockerImage}"
+            }
+        }
+        
+      stage('Run'){
+          steps{ 
               sh "docker run -p 8082:8082 -d --name ${dockerContainerName} ${dockerImage}"
             }
         }
-     
     }    
 }    
 
