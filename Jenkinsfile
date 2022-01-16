@@ -33,7 +33,7 @@ pipeline {
         
       stage('Docker Push'){
           steps{
-              withCredentials([string(credentialsId: 'dockerpwd', variable: 'dockerPWD')]) {
+              withCredentials([string(credentialsId: 'dockerhub', variable: 'dockerPWD')]) {
               sh "docker login -u 20152282 -p ${dockerPWD}"
               }
               sh "docker push ${dockerImage}"
