@@ -28,7 +28,7 @@ pipeline {
       stage('Docker Image'){
           steps{
               sh "docker build  -t ${env.dockerImage} ."   
-              sh "docker run -p 8082:8082 d --name ${dockerContainerName} ${dockerImage}"
+              sh "docker run -p 8082:8082 -d --name ${dockerContainerName} ${dockerImage}"
             }
         }
      
