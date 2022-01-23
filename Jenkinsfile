@@ -37,12 +37,6 @@ pipeline {
               sh "docker push ${dockerImage}"
             }
         }
-        
-      stage('Run'){
-          steps{ 
-              sh "docker run -p 8082:8082 -d --name ${dockerContainerName} ${dockerImage}"
-            }
-        }
     }    
 }    
 
