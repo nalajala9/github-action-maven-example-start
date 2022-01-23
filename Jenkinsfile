@@ -23,12 +23,17 @@ pipeline {
               
             }
         }
-      stage('Docker Image'){
+      stage('Build Docker Image '){
           steps{
               sh "docker build  -t ${dockerImage} ." 
             }
         }
         
+      stage('Docker Run'){
+          steps{
+              sh "docker run -dit --name ${dockerContainerName} ${dockerImage}" 
+            }
+        }  
       stage('Docker Push'){
           steps{
               withCredentials([string(credentialsId: 'dockerhub', variable: 'dockerPWD')]) {
