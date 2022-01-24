@@ -26,10 +26,10 @@ pipeline {
       
       stage('Sonar Testing  '){
           steps{
-                sh 'mvn sonar:sonar \
-                    -Dsonar.projectKey=test \
-                    -Dsonar.host.url=http://18.219.84.198:9000/ \
-                    -Dsonar.login=bd2c612544b9909fabdd44b85562ec34ee574568'
+              mvn clean verify sonar:sonar \
+              -Dsonar.projectKey=sonar \
+              -Dsonar.host.url=http://3.145.10.0:9000 \
+              -Dsonar.login=c5df0189f593e4d34a7e9f59122687fa08b6583a
  
             }
         }  
