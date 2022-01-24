@@ -24,14 +24,6 @@ pipeline {
             }
         }
       
-      stage('Sonar Testing  '){
-          steps{
-              sh 'mvn clean verify sonar:sonar \
-              -Dsonar.projectKey=sonar \
-              -Dsonar.host.url=http://3.145.10.0:9000 \
-              -Dsonar.login=c5df0189f593e4d34a7e9f59122687fa08b6583a'
-            }
-        }  
       stage('Build Docker Image '){
           steps{
               sh "docker build  -t ${dockerImage} ." 
