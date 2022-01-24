@@ -43,7 +43,7 @@
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
+                <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.8.1</version>
                 <dependencies>
                     <dependency>
@@ -56,13 +56,9 @@
                         <artifactId>junit-jupiter-engine</artifactId>
                         <version>5.1.0</version>
                     </dependency>
-                     </dependencies>
-      <plugin>
-        <groupId>org.sonarsource.scanner.maven</groupId>
-        <artifactId>sonar-maven-plugin</artifactId>
-        <version>3.7.0.1746</version>
-      </plugin>
-    </plugins>      
+                </dependencies>
+            </plugin>
+        </plugins>
     </build>
 
     <dependencies>
