@@ -56,10 +56,7 @@
                         <artifactId>junit-jupiter-engine</artifactId>
                         <version>5.1.0</version>
                     </dependency>
-                </dependencies>
-            </plugin>
-        </plugins>
-    <plugins>
+                     </dependencies>
       <plugin>
         <groupId>org.sonarsource.scanner.maven</groupId>
         <artifactId>sonar-maven-plugin</artifactId>
