@@ -26,9 +26,7 @@ pipeline {
       
      
         stage('Sonarqube analaysis'){
-             tools {
-                 jdk 'JDK 1.11.*'
-             }
+            
             steps{
                 sh 'mvn clean verify sonar:sonar \
                 -Dsonar.projectKey=sonar \
