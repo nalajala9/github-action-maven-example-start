@@ -24,14 +24,10 @@ pipeline {
             }
         }
       
-        stage('Sonar Testing'){
-            steps{
-            sh 'mvn sonar:sonar \
-                -Dsonar.projectKey=test \
-                -Dsonar.host.url=http://3.144.255.88:9000/ \
-                -Dsonar.login=fb5e9f638cede98b9355b07c4ab09a766b59ff03'
- 
-              
+        stage('SonarQube Analysis') {
+            def mvn = tool 'Maven';
+            withSonarQubeEnv() {
+                sh "${mvn}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=sonar"    
             }
         }
       stage('Build Docker Image '){
