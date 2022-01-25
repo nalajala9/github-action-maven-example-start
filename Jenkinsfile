@@ -25,14 +25,17 @@ pipeline {
         }
       
      
-        stage('Sonarqube analaysis'){
-            
-            steps{
-                sh 'mvn clean verify sonar:sonar \
-                -Dsonar.projectKey=sonar \
-                -Dsonar.host.url=http://3.136.18.68:9000/ \
-                -Dsonar.login=test'            
-              
+        stage('SonarQube analysis') {
+            tools {
+                jdk "jdk11" // the name you have given the JDK installation using the JDK manager (Global Tool Configuration
+            }
+            environment {
+                scannerHome = tool 'SonarQube Scanner' // the name you have given the Sonar Scanner (Global Tool Configuration
+            }
+            steps {
+                withSonarQubeEnv(installationName: 'Sonar') {
+                    sh 'mvn sonar:sonar'
+                }
             }
         }
       stage('Build Docker Image '){
