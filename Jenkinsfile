@@ -6,7 +6,7 @@ pipeline {
     }
     tools { 
         maven 'Maven' 
-        jdk 'JDK 1.8.*' 
+        jdk 'JDK 1.11.*' 
     }
     stages{
         stage('git checkout'){
@@ -27,13 +27,13 @@ pipeline {
      
         stage('SonarQube analysis') {
             tools {
-                jdk "jdk11" // the name you have given the JDK installation using the JDK manager (Global Tool Configuration
+                jdk "JDK 1.11.*" // the name you have given the JDK installation using the JDK manager (Global Tool Configuration
             }
             environment {
                 scannerHome = tool 'SonarQube Scanner' // the name you have given the Sonar Scanner (Global Tool Configuration
             }
             steps {
-                withSonarQubeEnv(installationName: 'Sonar') {
+                withSonarQubeEnv(installationName: 'SonarServer') {
                     sh 'mvn sonar:sonar'
                 }
             }
