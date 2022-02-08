@@ -34,7 +34,7 @@ pipeline {
             }
             steps {
                 withSonarQubeEnv(installationName: 'SonarServer') {
-                    sh 'mvn sonar:sonar -Dsonar.login=bee80c82793fc89d11329cd51a4e71ec03c3cc27'
+                    sh 'mvn sonar:sonar'
                 }
             }
         }
