@@ -1,7 +1,5 @@
 pipeline {
-    agent {
-        label 'slave-2'
-    }
+    agent any
     environment{
     dockerImage = "20152282/javaapp_$JOB_NAME:$BUILD_NUMBER"
     dockerContainerName = 'javaapp_$JOB_NAME_$BUILD_NUMBER'
