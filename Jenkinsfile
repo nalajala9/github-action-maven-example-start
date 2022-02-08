@@ -34,6 +34,7 @@ pipeline {
             }
             steps {
                 withSonarQubeEnv(installationName: 'SonarServer') {
+                    -Dsonar.login=“admin” -Dsonar.login=“ravi”
                     sh 'mvn sonar:sonar'
                 }
             }
