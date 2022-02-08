@@ -33,9 +33,8 @@ pipeline {
                 scannerHome = tool 'SonarQube Scanner' // the name you have given the Sonar Scanner (Global Tool Configuration
             }
             steps {
-                withSonarQubeEnv(installationName: 'SonarServer') {
-                    -Dsonar.login=“admin” -Dsonar.login=“ravi”
-                    sh 'mvn sonar:sonar'
+                withSonarQubeEnv(installationName: 'SonarServer') 
+                sh 'mvn sonar:sonar -Dsonar.login=bee80c82793fc89d11329cd51a4e71ec03c3cc27'
                 }
             }
         }
